@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamborghini</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to bottom, black, rgba(3, 3, 3, 0.658));
+            width: 100%;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            color: white;
+            animation: headerDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes headerDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .menu {
+            font-size: 18px;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .menu:hover {
+            transform: translateX(5px);
+        }
+
+        .img {
+            width: 80px;
+            height: 60px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .icons {
+            font-size: 20px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .icons:hover {
+            transform: scale(1.2);
+        }
+
+        .slide-one {
+            width: 100%;
+        }
+
+        .first-page {
+            position: absolute;
+            bottom: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+
+        .video-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lamb-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: heroZoom 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        .video-container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgb(5, 5, 5) 100%);
+            pointer-events: none;
+        }
+
+        .words {
+            margin-left: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .words p {
+            font-size: 40px;
+            margin-left: 10px;
+            font-weight: 100;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: riseIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+        }
+
+        .words h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-left: 40px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: riseIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+        }
+
+        @keyframes riseIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .discover {
+            margin-right: 40px;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: riseIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
+            transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+        }
+
+        .slide-two {
+            height: 100vh;
+            width: 100%;
+            margin-top: 70px;
+        }
+
+        .side-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px;
+        }
+
+        .side-nav h4 {
+            font-size: 35px;
+        }
+
+        .side-nav p {
+            font-style: unset;
+            font-weight: bold;
+            margin-right: 20px;
+            font-size: 20px;
+        }
+
+        .two-three {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 40px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .revuelto {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 60px;
+            font-style: italic;
+            color: rgb(1, 1, 1);
+            margin-top: 30px;
+        }
+
+        .quantum {
+            font-size: 50px;
+            color: rgba(3, 3, 3, 0.658);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .img-lam {
+            width: 80%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .img-lam:hover {
+            transform: scale(1.03);
+        }
+
+        .revuelto1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 40px;
+            font-size: 20px;
+        }
+
+        .set {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 50px;
+            font-weight: bolder;
+        }
+
+        .explore {
+            background-color: yellow;
+            padding: 20px;
+            transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+        }
+
+        .para {
+            margin-top: 30px;
+            margin-left: 90px;
+            margin-right: 90px;
+            padding: 20px;
+        }
+
+        .para p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        .slide-three {
+            width: 100%;
+            margin-top: 90px;
+        }
+
+        .dealer-locator {
+            display: flex;
+            flex-direction: column;
+            height: 80px;
+            position: relative;
+        }
+
+        .desler-img {
+            height: 400px;
+            width: 100vw;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dealer-locator:hover .desler-img {
+            transform: scale(1.03);
+        }
+
+        .dealer-words {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 110px;
+            color: white;
+            left: 60px;
+            font-size: xx-large;
+        }
+
+        .find {
+            margin-right: 40px;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            width: 310px;
+            margin-top: 80px;
+            font-size: x-large;
+            transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+        }
+
+        .slide-four {
+            height: 100vh;
+            width: 100%;
+            margin-top: 320px;
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .menus {
+            margin-top: 70px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .menus:hover {
+            color: aqua;
+            transform: translateY(-2px);
+            border-color: aqua;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 70px;
+        }
+
+        .Configure {
+            color: aqua;
+            margin-left: 40px;
+            font-size: 30px;
+            margin-top: 150px;
+            margin-bottom: -20px;
+        }
+
+        .revuelto {
+            margin-left: 40px;
+            font-size: 70px;
+            color: black;
+        }
+
+        .center2 .revuelto {
+            color: white;
+        }
+
+        .center2 {
+            margin-left: 40px;
+        }
+
+        .set2 {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            gap: 50px;
+            font-weight: bolder;
+            margin-left: 40px;
+        }
+
+        .explores {
+            background-color: yellow;
+            color: black;
+            padding: 20px;
+            transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+        }
+
+        .paras {
+            margin-left: 70px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top: 150px;
+            text-align: center;
+        }
+
+        .center-img {
+            height: 530px;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .center-img:hover {
+            transform: scale(1.03);
+        }
+
+        .discover:hover {
+            background-color: rgb(148, 146, 146);
+            color: white;
+            transform: scale(1.06);
+        }
+
+        .explore:hover {
+            background-color: rgba(231, 196, 0, 0.732);
+            color: black;
+            transform: scale(0.95);
+        }
+
+        .enuuire {
+            border: 2px solid white;
+            padding: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .enuuire:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        .find:hover {
+            background-color: rgba(231, 196, 0, 0.732);
+            color: black;
+            transform: scale(0.95);
+        }
+
+        .explores:hover {
+            background-color: rgba(231, 196, 0, 0.732);
+            transform: scale(0.95);
+        }
+
+        .reveal,
+        .reveal-stagger > * {
+            opacity: 1;
+            transform: none;
+        }
+
+        .menu-toggle-input {
+            display: none;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .menu:hover {
+            transform: translateX(5px);
+        }
+
+        .menu-icon-open,
+        .menu-icon-close {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .menu-icon-close {
+            display: none;
+        }
+
+        .menu-toggle-input:checked ~ header .menu-icon-open {
+            display: none;
+        }
+
+        .menu-toggle-input:checked ~ header .menu-icon-close {
+            display: inline;
+            animation: iconPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes iconPop {
+            from {
+                transform: scale(0.5) rotate(-90deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .mega-menu-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 998;
+            display: none;
+        }
+
+        .menu-toggle-input:checked ~ .mega-menu-backdrop {
+            display: block;
+        }
+
+        .mega-menu {
+            position: fixed;
+            top: 68px;
+            left: 0;
+            width: 100%;
+            background: #0a0a0a;
+            color: white;
+            z-index: 999;
+            padding: 40px 60px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 60px;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            visibility: hidden;
+            transform: translateY(-16px);
+            transition: max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.4s ease,
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0.55s;
+        }
+
+        .menu-toggle-input:checked ~ .mega-menu {
+            max-height: calc(100vh - 68px);
+            overflow-y: auto;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.5s ease 0.1s,
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0s;
+        }
+
+        .mega-menu-primary,
+        .mega-menu-secondary {
+            display: contents;
+        }
+
+        .mega-menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            margin-bottom: 40px;
+            transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item {
+            animation: riseIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(1) { animation-delay: 0.12s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(2) { animation-delay: 0.16s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(3) { animation-delay: 0.2s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(4) { animation-delay: 0.24s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(5) { animation-delay: 0.28s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(6) { animation-delay: 0.32s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(7) { animation-delay: 0.36s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(8) { animation-delay: 0.4s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-item:nth-child(9) { animation-delay: 0.44s; }
+
+        .mega-menu-item:hover {
+            color: #6fb1ff;
+            border-color: #6fb1ff;
+            transform: translateX(4px);
+        }
+
+        .mega-menu-item .chev {
+            font-size: 15px;
+            opacity: 0.8;
+        }
+
+        .mega-menu-secondary {
+            grid-column: 1 / -1;
+        }
+
+        .mega-menu-secondary::before {
+            content: "";
+            grid-column: 1 / -1;
+        }
+
+        .mega-menu-sub {
+            display: block;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 26px;
+            transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub {
+            animation: riseIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub:nth-child(1) { animation-delay: 0.5s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub:nth-child(2) { animation-delay: 0.54s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub:nth-child(3) { animation-delay: 0.58s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub:nth-child(4) { animation-delay: 0.62s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub:nth-child(5) { animation-delay: 0.66s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub:nth-child(6) { animation-delay: 0.7s; }
+        .menu-toggle-input:checked ~ .mega-menu .mega-menu-sub:nth-child(7) { animation-delay: 0.74s; }
+
+        .mega-menu-sub:hover {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(4px);
+        }
+
+        .mega-menu a:focus-visible,
+        .menu:focus-visible,
+        .sub-item:focus-visible,
+        .sub-back:focus-visible,
+        .sub-all:focus-visible {
+            outline: 2px solid #6fb1ff;
+            outline-offset: 4px;
+        }
+
+        body.menu-open,
+        body.panel-open {
+            overflow: hidden;
+        }
+
+        .mega-sub {
+            display: none;
+            grid-column: 1 / -1;
+        }
+
+        .mega-menu.sub-open .mega-menu-primary,
+        .mega-menu.sub-open .mega-menu-secondary {
+            display: none;
+        }
+
+        .mega-menu.sub-open .mega-sub {
+            display: block;
+            animation: subIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes subIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .sub-head {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-bottom: 20px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .sub-title {
+            flex: 1;
+            font-size: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .sub-back,
+        .sub-all {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 10px 16px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .sub-back:hover,
+        .sub-all:hover {
+            color: #6fb1ff;
+            border-color: #6fb1ff;
+        }
+
+        .sub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 36px 40px;
+        }
+
+        .group-head {
+            display: block;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: yellow;
+            background: none;
+            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 12px;
+            margin-bottom: 4px;
+        }
+
+        button.group-head {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        button.group-head:hover {
+            color: #6fb1ff;
+        }
+
+        button.group-head small {
+            text-transform: none;
+            font-weight: normal;
+            letter-spacing: 0;
+        }
+
+        .sub-item {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.88);
+            padding: 12px 0;
+            font-size: 15px;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .sub-item:hover {
+            color: #6fb1ff;
+            transform: translateX(4px);
+        }
+
+        .sub-item small,
+        .group-head small {
+            display: block;
+            margin-top: 5px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .info-panel {
+            position: fixed;
+            inset: 0;
+            z-index: 1200;
+            background: rgba(0, 0, 0, 0.96);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+        }
+
+        .info-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s ease, visibility 0s linear 0s;
+        }
+
+        .info-card {
+            width: 100%;
+            max-width: 760px;
+            max-height: 100%;
+            overflow-y: auto;
+            transform: translateY(30px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .info-panel.open .info-card {
+            transform: translateY(0);
+        }
+
+        .info-eyebrow {
+            color: yellow;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .info-title {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 28px;
+        }
+
+        .info-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .info-spec {
+            flex: 1 1 170px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 18px 20px;
+        }
+
+        .info-spec span {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 10px;
+        }
+
+        .info-spec strong {
+            font-size: 24px;
+        }
+
+        .info-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 36px;
+        }
+
+        .info-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-btn {
+            padding: 18px 26px;
+            font-weight: bold;
+            font-size: 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .info-btn.primary {
+            background: yellow;
+            border-color: yellow;
+            color: black;
+        }
+
+        .info-btn:hover {
+            transform: scale(0.96);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .info-btn.primary:hover {
+            background: rgba(231, 196, 0, 0.8);
+        }
+
+        .info-close {
+            position: absolute;
+            top: 24px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            font-size: 26px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .info-close:hover {
+            transform: rotate(90deg);
+            border-color: white;
+        }
+
+        @media (max-width: 700px) {
+            .info-title {
+                font-size: 36px;
+            }
+
+            .mega-menu {
+                grid-template-columns: 1fr;
+                padding: 30px 24px 40px;
+            }
+
+            .sub-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+
+        <header>
+            <label for="menu-toggle" class="menu">
+                <span class="menu-icon-open">&#9776;</span>
+                <span class="menu-icon-close">&#10005;</span>
+                MENU
+            </label>
+
+            <img class="img" src="imgs/bull1.png" alt="bull">
+
+            <p class="icons">&#128388; &#128269;</p>
+        </header>
+
+        <label for="menu-toggle" class="mega-menu-backdrop"></label>
+
+        <nav class="mega-menu">
+
+            <div class="mega-menu-primary">
+
+                <a class="mega-menu-item" href="#">
+                    MODELS
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    OWNERSHIP
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    DEALERSHIPS
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    BEYOND
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    COMPANY
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    MOTORSPORT
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    MUSEUM
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    STORE
+                    <span class="chev">&#10095;</span>
+                </a>
+
+                <a class="mega-menu-item" href="#">
+                    NEWSROOM
+                    <span class="chev">&#10095;</span>
+                </a>
+
+            </div>
+
+            <div class="mega-menu-secondary">
+
+                <a class="mega-menu-sub" href="#">Design</a>
+                <a class="mega-menu-sub" href="#">History</a>
+                <a class="mega-menu-sub" href="#">Financial services</a>
+                <a class="mega-menu-sub" href="#">Warranty extension</a>
+                <a class="mega-menu-sub" href="#">Driving Programs</a>
+                <a class="mega-menu-sub" href="#">Lounge</a>
+                <a class="mega-menu-sub" href="#">Club</a>
+
+            </div>
+
+        </nav>
+
+        <div class="slide-one">
+
+            <div class="video-container">
+                <video
+                    class="lamb-video"
+                    src="videos/Lamborghini Aventador S Edit [4K] _ Dead Inside (Slowed).mp4"
+                    autoplay
+                    muted
+                    playsinline
+                    loop>
+                </video>
+            </div>
+
+            <div class="first-page">
+
+                <div class="words">
+                    <p>THE QUANTUM OF DRIVING</p>
+                    <h1>FEVUELTO SV</h1>
+                </div>
+
+                <div class="discover">
+                    DISCOVER MORE &#10147;
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="slide-two">
+
+            <div class="side-nav reveal">
+                <h4>MODELS</h4>
+                <p>DISCOVER ALL MODELS &#10132;</p>
+            </div>
+
+            <div class="two-three reveal">
+                <p class="revuelto">REVUELTO</p>
+                <p class="quantum">THE QUANTUM OF DRIVING</p>
+
+                <img
+                    class="img-lam"
+                    src="imgs/Revuelto PM-familyChooser.webp"
+                    alt="lam">
+            </div>
+
+            <div class="revuelto1 reveal">
+                <p>REVUELTO SV</p>
+                <p>REVUELTO</p>
+            </div>
+
+            <div class="set reveal-stagger reveal">
+
+                <div class="explore">
+                    <p>EXPLORE THE TIME &#10132;</p>
+                </div>
+
+                <p>START CONFIGURATION &#10061;</p>
+                <p>ENQUIRE &#9993;</p>
+
+            </div>
+
+            <div class="para reveal">
+
+                <p>
+                    Revuelto: Combined energy consumption: 4,7 kWh/100 Km plus 15 l/100km;
+                    Combined CO2 emissions: 350 g/km; Combined CO2 efficiency class: G;
+                </p>
+
+                <p>
+                    Combined fuel consumption with discharged battery: 17,9 l/100km;
+                    CO2 class with discharged battery: G; Revuelto SV: Under approval, not available for sale
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="slide-three">
+
+            <div class="dealer-locator">
+
+                <div class="desler">
+                    <img
+                        class="desler-img"
+                        src="imgs/lam.jpeg"
+                        alt="Lamborghini-Urus">
+                </div>
+
+                <div class="dealer-words reveal">
+
+                    <h1 class="dealer-locatorwords">
+                        DEALER LOCATOR
+                    </h1>
+
+                    <div class="find">
+                        FIND YOUR DEALER &#10147;
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="slide-four">
+
+            <div class="top-nav reveal-stagger reveal">
+
+                <p class="menus">REVUELTO SV</p>
+                <p class="menus">USERS SE PERFORMAANTE</p>
+                <p class="menus">TEMERARIO</p>
+                <p class="menus">REVUELTO</p>
+                <p class="menus">URUS SE</p>
+
+            </div>
+
+            <div class="center reveal">
+
+                <img
+                    class="center-img"
+                    src="imgs/Revuelto PM-modelChooser-desktop.webp"
+                    alt="lam">
+
+            </div>
+
+            <div class="center2 reveal">
+
+                <p class="Configure">
+                    CONFIGURE YOUR
+                </p>
+
+                <h1 class="revuelto">
+                    REVUELTO SV
+                </h1>
+
+                <div class="set2">
+
+                    <div class="explores">
+                        <p>START CONFIGURATION &#10061;</p>
+                    </div>
+
+                    <p class="enuuire">
+                        ENQUIRE &#9993;
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="paras reveal">
+                The vehicle is not yet offered for sale and is therefore not subject to Directive 1999/94/EC.
+                The fuel consumption and emissions data is in the type approval stage
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var menuToggle = document.getElementById("menu-toggle");
+            var nav = document.querySelector(".mega-menu");
+            var registry = [];
+            var current = null;
+            var panelOpen = false;
+
+            function S(p, v, a) { return { p: p, v: v, a: a }; }
+            function I(n, s, k) { return { n: n, s: s || null, k: k || null }; }
+            function G(n, s) { var o = I(n, s); o.g = true; return o; }
+
+            var MENU = {
+                "models": {
+                    title: "Models",
+                    scroll: ".slide-two",
+                    all: "View all models",
+                    items: [
+                        G("Temerario", S("920 CV", "343 km/h", "2.7 s")),
+                        I("Revuelto", null, [
+                            I("Revuelto SV", S("1015 CV", ">348 km/h", "2.5 s")),
+                            I("Revuelto Miura 60° Homage", S("747 kW", ">350 km/h", "2.5 s")),
+                            I("Revuelto", S("1015 CV", ">350 km/h", "2.5 s"))
+                        ]),
+                        I("Urus", null, [
+                            I("Urus SE Performante", S("800 CV / 588 kW", "312 km/h", "3.4 s")),
+                            I("Urus SE", S("800 CV / 588 kW", "312 km/h", "3.4 s"))
+                        ]),
+                        I("Pre-Owned"),
+                        I("Few-off", null, [
+                            I("Fenomeno Roadster"),
+                            I("Fenomeno"),
+                            I("Countach LPI 800-4", S("814 CV / 599 kW", "355 km/h", "2.8 s")),
+                            I("Sián Roadster", S("819 CV / 602 kW", ">350 km/h", "2.9 s")),
+                            I("Sián FKP 37", S("819 CV / 602 kW", ">350 km/h", "2.8 s")),
+                            I("Sesto Elemento"),
+                            I("Centenario Roadster"),
+                            I("Centenario"),
+                            I("Veneno Roadster"),
+                            I("Veneno"),
+                            I("Reventón Roadster"),
+                            I("Reventón")
+                        ]),
+                        I("Concept", null, [
+                            I("Terzo Millennio"),
+                            I("Asterion"),
+                            I("Estoque")
+                        ]),
+                        I("Customization"),
+                        I("Accessories")
+                    ]
+                },
+                "ownership": {
+                    title: "Ownership",
+                    items: [
+                        I("Connectivity"),
+                        I("Unica"),
+                        I("Mobility Program"),
+                        I("Classics"),
+                        I("Defeat Time"),
+                        I("Service"),
+                        I("Recall Campaign")
+                    ]
+                },
+                "company": {
+                    title: "Company",
+                    items: [
+                        I("Corporate Governance"),
+                        I("Financials"),
+                        I("Careers")
+                    ]
+                },
+                "motorsport": {
+                    title: "Motorsport",
+                    items: [
+                        I("GTP", null, [I("SC63")]),
+                        I("Super Trofeo", null, [
+                            I("Super Trofeo Asia"),
+                            I("Super Trofeo Europe"),
+                            I("Super Trofeo North America"),
+                            I("Super Trofeo World Finals"),
+                            I("Calendar and Results")
+                        ]),
+                        I("GT3"),
+                        I("Motorsport Models", null, [
+                            I("Temerario GT3"),
+                            I("Huracán GT3 EVO2"),
+                            I("Huracán Super Trofeo EVO2"),
+                            I("SC18 Alston"),
+                            I("Essenza SCV12"),
+                            I("SC20"),
+                            I("Heritage")
+                        ]),
+                        I("Drivers"),
+                        I("Esports")
+                    ]
+                }
+            };
+
+            var scrollTargets = {
+                "dealerships": ".slide-three"
+            };
+
+            var INFO = {
+                "beyond": { t: "Beyond", d: "Experiences, collections and special projects that carry the Lamborghini spirit outside the showroom and off the road." },
+                "museum": { t: "Museum", d: "Walk through the history of the brand, from the early models to the latest super sports cars and concept vehicles." },
+                "store": { t: "Store", d: "Apparel, accessories, models and collectibles that bring the brand into everyday life." },
+                "newsroom": { t: "Newsroom", d: "Product launches, motorsport results, events and press releases from the world of Lamborghini." },
+                "design": { t: "Design", d: "Every Lamborghini starts as a sharp, uncompromising line. Design and engineering work together to give each model an unmistakable silhouette." },
+                "history": { t: "History", d: "From the first models of 1963 to today's hybrid super sports cars, follow the cars that built the legend." },
+                "financial services": { t: "Financial services", d: "Financing and leasing solutions tailored to your needs, arranged through your authorised dealer." },
+                "warranty extension": { t: "Warranty extension", d: "Extend your coverage beyond the standard period and keep your car protected." },
+                "driving programs": { t: "Driving Programs", d: "Learn to get the most from your car with courses led by professional instructors." },
+                "lounge": { t: "Lounge", d: "A space for owners and guests to connect, relax and enjoy the brand experience." },
+                "club": { t: "Club", d: "Join a community of owners and fans who share a passion for the bull." }
+            };
+
+            function el(tag, cls, txt) {
+                var e = document.createElement(tag);
+                if (cls) e.className = cls;
+                if (txt !== undefined) e.textContent = txt;
+                return e;
+            }
+
+            function specLine(s) {
+                return s.p + " · " + s.v + " · " + s.a;
+            }
+
+            function itemButton(it, crumbs, parentKey, cls) {
+                var b = el("button", cls || "sub-item");
+                b.type = "button";
+                b.appendChild(document.createTextNode(it.n));
+                if (it.s) b.appendChild(el("small", "", specLine(it.s)));
+                it._crumbs = crumbs;
+                it._parent = parentKey;
+                b.dataset.id = String(registry.length);
+                registry.push(it);
+                return b;
+            }
+
+            var sub = el("div", "mega-sub");
+            nav.appendChild(sub);
+
+            function renderSub(key) {
+                var data = MENU[key];
+                registry = [];
+                sub.innerHTML = "";
+
+                var head = el("div", "sub-head");
+                var back = el("button", "sub-back", "‹ BACK");
+                back.type = "button";
+                head.appendChild(back);
+                head.appendChild(el("h3", "sub-title", data.title));
+                if (data.scroll) {
+                    var all = el("button", "sub-all", data.all.toUpperCase() + " ➜");
+                    all.type = "button";
+                    all.dataset.scroll = data.scroll;
+                    head.appendChild(all);
+                }
+                sub.appendChild(head);
+
+                var grid = el("div", "sub-grid");
+                var groups = [];
+                var loose = [];
+                data.items.forEach(function (it) {
+                    if (it.k || it.g) groups.push(it);
+                    else loose.push(it);
+                });
+
+                groups.forEach(function (it) {
+                    var box = el("div", "sub-group");
+                    if (it.k) {
+                        box.appendChild(el("h4", "group-head", it.n));
+                        it.k.forEach(function (kid) {
+                            box.appendChild(itemButton(kid, [data.title, it.n, kid.n], key));
+                        });
+                    } else {
+                        box.appendChild(itemButton(it, [data.title, it.n], key, "group-head"));
+                    }
+                    grid.appendChild(box);
+                });
+
+                if (loose.length) {
+                    var more = el("div", "sub-group");
+                    more.appendChild(el("h4", "group-head", groups.length ? "More" : data.title));
+                    loose.forEach(function (it) {
+                        more.appendChild(itemButton(it, [data.title, it.n], key));
+                    });
+                    grid.appendChild(more);
+                }
+
+                sub.appendChild(grid);
+            }
+
+            function showSub(key) {
+                renderSub(key);
+                nav.classList.add("sub-open");
+                nav.scrollTop = 0;
+            }
+
+            function hideSub() {
+                nav.classList.remove("sub-open");
+                nav.scrollTop = 0;
+            }
+
+            function setMenu(open) {
+                menuToggle.checked = open;
+                document.body.classList.toggle("menu-open", open);
+                if (!open) {
+                    setTimeout(function () {
+                        if (!menuToggle.checked) nav.classList.remove("sub-open");
+                    }, 650);
+                }
+            }
+
+            var panel = el("div", "info-panel");
+            panel.setAttribute("role", "dialog");
+            panel.setAttribute("aria-modal", "true");
+            panel.innerHTML =
+                '<button class="info-close" aria-label="Close">&#10005;</button>' +
+                '<div class="info-card">' +
+                '<p class="info-eyebrow"></p>' +
+                '<h2 class="info-title"></h2>' +
+                '<div class="info-specs"></div>' +
+                '<p class="info-text"></p>' +
+                '<div class="info-actions">' +
+                '<button class="info-btn primary" type="button" data-action="menu">BACK TO MENU</button>' +
+                '<button class="info-btn" type="button" data-action="close">CLOSE</button>' +
+                '</div>' +
+                '</div>';
+            document.body.appendChild(panel);
+
+            var pEyebrow = panel.querySelector(".info-eyebrow");
+            var pTitle = panel.querySelector(".info-title");
+            var pSpecs = panel.querySelector(".info-specs");
+            var pText = panel.querySelector(".info-text");
+
+            function openPanel(it) {
+                current = it;
+                pEyebrow.textContent = it._crumbs.join("  /  ");
+                pTitle.textContent = it.n;
+                pSpecs.innerHTML = "";
+
+                if (it.s) {
+                    [["Power", it.s.p], ["Max speed", it.s.v], ["0–100 km/h", it.s.a]].forEach(function (row) {
+                        var box = el("div", "info-spec");
+                        box.appendChild(el("span", "", row[0]));
+                        box.appendChild(el("strong", "", row[1]));
+                        pSpecs.appendChild(box);
+                    });
+                    pText.textContent = "";
+                } else {
+                    pText.textContent = it.d || "Details for " + it.n + " will appear here.";
+                }
+
+                pSpecs.style.display = it.s ? "flex" : "none";
+                pText.style.display = pText.textContent ? "block" : "none";
+
+                panelOpen = true;
+                panel.classList.add("open");
+                document.body.classList.add("panel-open");
+                panel.querySelector(".info-card").scrollTop = 0;
+                panel.querySelector(".info-close").focus();
+            }
+
+            function closePanel() {
+                panelOpen = false;
+                panel.classList.remove("open");
+                document.body.classList.remove("panel-open");
+            }
+
+            panel.querySelector(".info-close").addEventListener("click", closePanel);
+            panel.querySelector('[data-action="close"]').addEventListener("click", closePanel);
+            panel.querySelector('[data-action="menu"]').addEventListener("click", function () {
+                var parent = current && current._parent;
+                closePanel();
+                setMenu(true);
+                if (parent && MENU[parent]) showSub(parent);
+                else hideSub();
+            });
+            panel.addEventListener("click", function (e) {
+                if (e.target === panel) closePanel();
+            });
+
+            sub.addEventListener("click", function (e) {
+                var b = e.target.closest("button");
+                if (!b) return;
+
+                if (b.classList.contains("sub-back")) {
+                    hideSub();
+                    return;
+                }
+
+                if (b.classList.contains("sub-all")) {
+                    var target = b.dataset.scroll;
+                    setMenu(false);
+                    setTimeout(function () {
+                        var el2 = document.querySelector(target);
+                        if (el2) el2.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 60);
+                    return;
+                }
+
+                if (b.dataset.id !== undefined) {
+                    var it = registry[Number(b.dataset.id)];
+                    setMenu(false);
+                    setTimeout(function () { openPanel(it); }, 150);
+                }
+            });
+
+            function getLabel(link) {
+                var node = link.firstChild;
+                while (node && node.nodeType !== 3) node = node.nextSibling;
+                var raw = node ? node.textContent : link.textContent;
+                return raw.replace(/\s+/g, " ").trim().toLowerCase();
+            }
+
+            document.querySelectorAll(".mega-menu-primary a, .mega-menu-secondary a").forEach(function (link) {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var key = getLabel(link);
+
+                    if (MENU[key]) {
+                        showSub(key);
+                    } else if (scrollTargets[key]) {
+                        setMenu(false);
+                        setTimeout(function () {
+                            var t = document.querySelector(scrollTargets[key]);
+                            if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 60);
+                    } else if (INFO[key]) {
+                        var info = INFO[key];
+                        setMenu(false);
+                        setTimeout(function () {
+                            openPanel({ n: info.t, d: info.d, _crumbs: [info.t], _parent: null });
+                        }, 150);
+                    }
+                });
+            });
+
+            menuToggle.addEventListener("change", function () {
+                document.body.classList.toggle("menu-open", menuToggle.checked);
+                if (!menuToggle.checked) setMenu(false);
+            });
+
+            var menuLabel = document.querySelector("label.menu");
+            if (menuLabel) {
+                menuLabel.setAttribute("tabindex", "0");
+                menuLabel.setAttribute("role", "button");
+                menuLabel.addEventListener("keydown", function (e) {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setMenu(!menuToggle.checked);
+                    }
+                });
+            }
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key !== "Escape") return;
+                if (panelOpen) closePanel();
+                else if (menuToggle.checked) setMenu(false);
+            });
+        })();
+    </script>
+</body>
+</html>
